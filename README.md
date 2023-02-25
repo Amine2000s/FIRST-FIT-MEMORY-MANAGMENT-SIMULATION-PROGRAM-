@@ -18,7 +18,7 @@ THE PROGRAM IS ABLE TO :
 
 
 SOME PICTURES IN THE PROGRAM 
-================[MAIN MENU]=======================================================
+================[MAIN MENU]=======================================
 ![MAIN_MENU](https://user-images.githubusercontent.com/92222814/221378485-d1f2f4bb-970c-419c-a9c8-793f6b2dbf9d.png)
 
 
@@ -30,7 +30,9 @@ SOME PICTURES IN THE PROGRAM
 
 =========================================================================================
 
-=========================[PDT]===========================================================
-![PARITION DESCRIPTION_TABLE](https://user-images.githubusercontent.com/92222814/221378530-0b2e6eac-c5f9-45ae-a652-f396ef48a7f5.png)
+======================
+===[PDT]====================================
+![PARITION DESCRIPTION_TABLE](https://user-images.githubusercontent.com/92222814/221378572-aaef61d8-f575-4a24-b12a-d0da178112a0.png)
+
 ========================================================================================
 
