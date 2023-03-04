@@ -43,6 +43,7 @@ void de_queue(){//good
     prgm *temp;
     temp= main_program;
 
+
     main_program=main_program->nxt;
 
     free(temp);
@@ -94,7 +95,11 @@ void First_fit(){//good//
 
         }
 
+        //if(!found_place /*&& temp_prgm->nxt!=NULL*/){
+
         temp_prgm=temp_prgm->nxt;
+
+        //}
 
     }
 
@@ -146,14 +151,14 @@ void First_fit(){//good//
             }else{
                 printf("\n====================================================================================================================================\n");
 
-                printf("  Parition No  \t\t||\t\t   Starting adress of part  ||\t\t   Size of parition   ||\t\t   Parition Status ");
+                printf("  Parition No  ||\t\t   Starting adress of part \t\t||\t\t   Size of parition   ||\t\t   Parition Status ");
 
                 printf("\n====================================================================================================================================\n");
 
                 for(int i=0;i<memory_parition_number;i++){
 
 
-                    printf("     %i         ||\t\t          \t%i                 ||\t\t         %i          ||\t\t         %i  ",(main_memory_pointer[i].partion_number),(main_memory_pointer[i].starting_adress_of_partion),(main_memory_pointer[i].parition_size),(main_memory_pointer[i].partision_status));
+                    printf("     %i         ||\t\t         \t %i               || \t\t         %i        || \t\t         %i  ",(main_memory_pointer[i].partion_number),(main_memory_pointer[i].starting_adress_of_partion),(main_memory_pointer[i].parition_size),(main_memory_pointer[i].partision_status));
                 printf("\n====================================================================================================================================\n");
 
                 }
@@ -238,10 +243,10 @@ void show_program()
 
     printf("\nSELECT WHICH PARITIONS YOU WANT TO ADD ");
 
-    scaf("%d",&deleted_memory_parition);
+    scanf("%d",&deleted_memory_partion);
 
     if(deleted_memory_partion>memory_parition_number){
-        printf("\nTHE NUMBER YOU CHOSED IS OUT OF THE MEMORY PARITIONS AVAILLABLE PLEASE TRY AGAIN ")
+        printf("\nTHE NUMBER YOU CHOSED IS OUT OF THE MEMORY PARITIONS AVAILLABLE PLEASE TRY AGAIN ");
     }else{
         memo_parti *temporary;
 
@@ -264,5 +269,99 @@ void show_program()
 
 
     }
+
+
+    void best_fit_check(){
+
+    /*assigning to temporary variables */
+        prgm *temp_prgm=NULL;
+
+       temp_prgm=main_program; /*assigning to temporary variables */
+
+       memo_parti *tempor_memory =NULL;
+
+       tempor_memory = main_memory_pointer; /*assigning to temporary variables */
+
+       int min_dif[memory_parition_number];
+
+       int min_dif_index=-1;
+
+        int i=0;
+
+    while(temp_prgm!=NULL )
+
+    {
+        while(i<memory_parition_number)
+            {
+
+            if((temp_prgm->program_size) <=(tempor_memory[i].parition_size ) &&  (tempor_memory[i].partision_status)!= 1 )
+
+            {
+                min_dif[i]=(tempor_memory[i].parition_size) - (temp_prgm->program_size);
+
+                if(i==0){
+                    min_dif_index=i;
+                }else{
+
+                    if(min_dif[i]<min_dif[min_dif_index]){
+
+                        min_dif_index=i;
+                    }
+                }
+            }
+            else
+            {
+                i+=1;
+            }
+
+        }
+        memo_parti *where_to_put;
+
+        where_to_put=NULL;
+
+        where_to_put=main_memory_pointer;
+
+      where_to_put[min_dif_index].partision_status = 1;
+
+      printf("\n BEST FIT ALGORITHM SIMULATION IS DONE  ");
+
+       temp_prgm=temp_prgm->nxt;
+}
+
+    }
+
+/* void fit(){//good//
+
+
+    prgm *temp_prgm=NULL;
+
+    temp_prgm=main_program; /*assigning to temporary variables
+
+    memo_parti *tempor_memory =NULL;
+
+    tempor_memory = main_memory_pointer; /*assigning to temporary variables
+
+
+
+    while(temp_prgm!=NULL )
+    {
+
+
+        if(min_dif_index==-1){
+            printf("Memory is Full Cannt add more");
+        }else{
+
+         tempor_memory[min_dif_index].partision_status = 1;
+
+         printf("\n BEST FIT ALGORITHM SIMULATION IS DONE  ");
+
+        de_queue();
+        }
+
+        temp_prgm=temp_prgm->nxt;
+
+    }
+
+}*/
 
 
